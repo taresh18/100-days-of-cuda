@@ -12,3 +12,6 @@ Read chapter 4 of PMPP, learnt about warps, blocks, SMs, how threads are assigne
 
 ### Day 04
 Read chapter 5 of PMPP, wrote cuda program to do matrix multiplication using shared mamory to reduce number of global memory access
+
+### Day 05
+Read chapter 6 of PMPP, wrote cuda programs to do matrix multiplication (A * B.T) using corner turning and matrix multiplication using thread coarsening
