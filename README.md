@@ -15,3 +15,6 @@ Read chapter 5 of PMPP, wrote cuda program to do matrix multiplication using sha
 
 ### Day 05
 Read chapter 6 of PMPP, wrote cuda programs to do matrix multiplication (A * B.T) using corner turning and matrix multiplication using thread coarsening
+
+### Day 06
+Read chapter 7 of PMPP, wrote cuda program to do a 2d convolution operation reducing global memory access using shread memory and local memory
