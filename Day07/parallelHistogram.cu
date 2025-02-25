@@ -32,6 +32,40 @@ __global__ void parallelHist(char *data, int *histo, int length) {
     }
 }
 
+# define COARSE_FACTOR 4 // each thread will process these many elements
+
+// parallel histogram using shared memory and privatisation and thread coarsening
+__global__ void parallelHist2(char *data, int *histo, int length) {
+    // create a private copy of histogram in the shrared memory for this block
+    __shared__ int bin_s[NUM_BINS];
+    for (int i=threadIdx.x; i<NUM_BINS; i+=blockDim.x) 
+        bin_s[i] = 0;
+    // wait for shared memory initialisation
+    __syncthreads();
+
+    // update shared memory histogram upto coarse_value number of elements from input array
+    int thread_id = blockIdx.x * blockDim.x + threadIdx.x;
+    for (int input_idx=thread_id*COARSE_FACTOR; input_idx<length; input_idx++) {
+        if (input_idx-thread_id*COARSE_FACTOR < COARSE_FACTOR) {
+            int alpha_idx = data[input_idx] - 'A';
+            if (alpha_idx >= 0 && alpha_idx < 26)
+            atomicAdd(&bin_s[alpha_idx / 4], 1);
+        }
+        else
+            break;
+    }
+    // wait till all threads have updated the shared memory bins
+    __syncthreads();
+
+    // copy bin values from shared memory to global
+    // write from shared memory to global
+    for (int i=threadIdx.x; i<NUM_BINS; i+=blockDim.x) {
+        int binValue = bin_s[i];
+        if (binValue > 0)
+            atomicAdd(&histo[i], binValue);
+    }   
+}
+
 // CPU version of histogram computation.
 void cpuHist(const char *data, int *histo, int length) {
     // Initialize histogram to zero.
