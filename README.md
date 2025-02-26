@@ -19,5 +19,8 @@ Read chapter 6 of PMPP, wrote cuda programs to do matrix multiplication (A * B.T
 ### Day 06
 Read chapter 7 of PMPP, wrote cuda program to do a 2d convolution operation reducing global memory access using shread memory and local memory
 
-# Day 07
+### Day 07
 Read chapter 9 of PMPP, wrote cuda program to compute histogram. Applied shared memory usage, thread coarsening and memory coalescing to optimise the vanilla implementation.
+
+### Day 08
+Read chapter 10 of PMPP, wrote cuda program to do reduction (addition) on a 1d array. Applied memory coalescing, thread coarsening, heirarchial reduction etc. to optimise,
