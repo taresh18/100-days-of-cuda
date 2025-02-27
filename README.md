@@ -23,4 +23,7 @@ Read chapter 7 of PMPP, wrote cuda program to do a 2d convolution operation redu
 Read chapter 9 of PMPP, wrote cuda program to compute histogram. Applied shared memory usage, thread coarsening and memory coalescing to optimise the vanilla implementation.
 
 ### Day 08
-Read chapter 10 of PMPP, wrote cuda program to do reduction (addition) on a 1d array. Applied memory coalescing, thread coarsening, heirarchial reduction etc. to optimise,
+Read chapter 10 of PMPP, wrote cuda program to do reduction (addition) on a 1d array. Applied memory coalescing, thread coarsening, heirarchial reduction etc. to optimise.
+
+### Day 09
+Read half of the chapter 11 of PMPP. wrote cuda prgram to do prefix sum vid kogg-stone algorithm.
