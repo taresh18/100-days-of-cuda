@@ -30,3 +30,6 @@ Read half of the chapter 11 of PMPP. wrote cuda prgram to do prefix sum via kogg
 
 ### Day 10
 Read rest of the chapter 11 of PMPP. wrote cuda prgram to do prefix sum via brent-kung algorithm plus with its thread coarsened version.
+
+### Day 11
+Implemented 1d vector addition using triton. Implemented flash attention (forward pass) using triton.
